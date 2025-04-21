@@ -1,18 +1,19 @@
 body {
     display: flex;
-    flex-direction: column;    /* Cambia a dirección de columna */
-    align-items: center;       /* Centra horizontalmente */
-    justify-content: center;    /* Centra verticalmente */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
-    background-color: #000000; /* Tono gris claro */
-    height: 100vh; /* Mantiene la altura de la ventana */
+    background-color: #000000;
+    height: 100vh;
 }
 
 .cabecera {
-    font-family: 'Press Start 2P', cursive; /* Usar la fuente correctamente */
+    font-family: 'Press Start 2P', cursive;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: auto; /* Permite que la altura se ajuste automáticamente */
-    font-size: 25px; /* Tamaño inicial más pequeño */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    font-size: 25px;
+    color: white; /* Color de respaldo por si el JS falla */
 }

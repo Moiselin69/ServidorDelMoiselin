@@ -25,7 +25,7 @@ body {
     }
     100% {
         font-size: 25px; /* Tamaño final */
-        transform: translateY(-65vh); /* Sube desde el centro, ajusta el valor aquí */
+        transform: translateY(-70vh); /* Sube desde el centro, ajusta el valor aquí */
     }
 }
 
@@ -35,5 +35,5 @@ body {
     opacity: 0; /* Ocultar inicialmente */
     visibility: hidden; /* Ocultar inicialmente */
     transition: opacity 1s, visibility 1s; /* Transiciones para mostrar */
-    margin-top: -520px; /* Espacio entre la cabecera y la introducción */
+    margin-top: -500px; /* Espacio entre la cabecera y la introducción */
 }
