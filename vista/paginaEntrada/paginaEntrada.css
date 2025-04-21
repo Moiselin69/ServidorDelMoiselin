@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column;    /* Cambia a dirección de columna */
+    align-items: center;       /* Centra horizontalmente */
+    justify-content: center;    /* Centra verticalmente */
+    margin: 0;
+    background-color: #000000; /* Tono gris claro */
+    height: 100vh; /* Mantiene la altura de la ventana */
+}
+
+.cabecera {
+    font-family: 'Press Start 2P', cursive; /* Usar la fuente correctamente */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    font-size: 25px; /* Tamaño inicial más pequeño */
+    animation: reducir 5s forwards, mover 3s forwards; /* Animación para reducir el tamaño y mover hacia arriba */
+}
+
+@keyframes reducir {
+    0% {
+        font-size: 100px; /* Tamaño inicial grande */
+        transform: translateY(0); /* Posición inicial */
+    }
+    100% {
+        font-size: 25px; /* Tamaño final */
+        transform: translateY(-65vh); /* Sube desde el centro, ajusta el valor aquí */
+    }
+}
+
+.introduccion {
+    color: white;
+    font-size: 15px;
+    opacity: 0; /* Ocultar inicialmente */
+    visibility: hidden; /* Ocultar inicialmente */
+    transition: opacity 1s, visibility 1s; /* Transiciones para mostrar */
+    margin-top: -520px; /* Espacio entre la cabecera y la introducción */
+}

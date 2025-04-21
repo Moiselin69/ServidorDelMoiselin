@@ -1,0 +1,57 @@
+La línea de código app.use(express.static(path.join(__dirname, 'vista'))); tiene la función de servir archivos estáticos  desde la carpeta especificada (en este caso, la carpeta vista). Aquí te explico cada parte:
+
+    1. app.use(...): Este método se utiliza para montar middleware en la aplicación Express. Middleware son funciones que  
+    tienen acceso al objeto de solicitud (req), al objeto de respuesta (res) y a la siguiente función middleware en el 
+    ciclo de vida de la solicitud-respuesta.
+
+    2. express.static(...): Este es un middleware incorporado en Express que permite servir archivos estáticos. Los archivos 
+    estáticos son aquellos que no cambian y se entregan tal como están al cliente, como HTML, CSS, JavaScript, imágenes, 
+    etc.
+
+    3. path.join(__dirname, 'vista'):
+        3.1 __dirname: Es una variable global en Node.js que contiene la ruta absoluta del directorio que contiene el archivo en ejecución (app.js en este caso).
+        3.2 path.join(...): Esta función se utiliza para construir una ruta de archivo de manera segura, uniendo diferentes partes
+            de una ruta y manejando los separadores de directorio de manera adecuada según el sistema operativo.
+        3.3 'vista': Es el nombre de la carpeta donde se encuentran los archivos estáticos que deseas servir.
+
+    Comportamiento
+        Cuando llamas a app.use(express.static(...)), estás configurando tu aplicación Express para que sirva automáticamente 
+        cualquier archivo que se encuentre en la carpeta vista cuando el cliente realice solicitudes a tu servidor. Por ejemplo:
+
+            1.  Si tienes un archivo style.css en la carpeta vista, podría ser accesible a través de http://localhost:3000/style.css.
+            2.  Si tienes un archivo index.html, y lo sirves con una ruta específica en otro endpoint (como app.get('/', ...)), 
+            ese archivo también se puede cargar a través de la misma aplicación.
+
+
+La siguiente línea de código; es parte de la configuración de una ruta en tu aplicación Express. 
+    Aquí te explico su funcionamiento en detalle:
+        app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, 'vista', 'vistaMain', 'index.html'));
+        });
+
+    1. app.get(...): Este método se utiliza para definir una ruta HTTP GET en tu aplicación Express. En este caso, se está 
+    definiendo una ruta para la raíz del sitio ('/'), lo que significa que esta función se ejecutará cuando un usuario acceda  
+    a la URL base de tu aplicación (por ejemplo, http://localhost:3000/).
+
+    2. (req, res) => { ... }: Esta es una función de callback que se ejecuta cuando se recibe una solicitud en la ruta 
+    especificada. req (request) es el objeto que representa la solicitud HTTP que se está realizando, y res (response) 
+    es el objeto que se utiliza para enviar una respuesta al cliente.
+
+    3. res.sendFile(...): Este método se utiliza para enviar un archivo como respuesta a la solicitud. En este caso, 
+    se está enviando el archivo index.html.
+
+    4. path.join(__dirname, 'vista', 'vistaMain', 'index.html'):
+        4.1 __dirname: Es una variable global en Node.js que contiene la ruta absoluta del directorio que contiene el archivo 
+        en ejecución (app.js en este caso).
+        4.2 path.join(...): Esta función se utiliza para construir la ruta del archivo de manera segura, uniendo las diferentes 
+        partes de la ruta y manejando los separadores de directorio de manera adecuada según el sistema operativo.
+        4.3 'vista', 'vistaMain', 'index.html': Son las partes de la ruta que se están uniendo. Esto resultará en la ruta  
+        completa hacia el archivo index.html que se encuentra en la carpeta vista/vistaMain.
+    
+    Comportamiento:
+        Cuando un cliente realiza una solicitud GET a la raíz de tu servidor 
+        (por ejemplo, al abrir http://localhost:3000/ en un navegador):
+        1. La función de callback se ejecuta: El servidor ejecuta la función de callback que has definido.
+        2. Se envía el archivo index.html: El servidor envía el archivo index.html ubicado en vista/vistaMain como 
+        respuesta a la solicitud. Esto significa que el contenido de index.html se mostrará en el navegador del cliente.
+
